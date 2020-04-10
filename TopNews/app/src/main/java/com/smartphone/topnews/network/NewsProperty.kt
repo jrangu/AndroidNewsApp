@@ -7,10 +7,11 @@ data class NewsProperty(
 	)
 
 
+
 data class NewsArticles(
-	    val author: String?,
-        val title: String?,
-	    val publishedAt: String?,
+    val author: String?,
+    val title: String?,
+    val publishedAt: String?,
     val content: String?,
     val urlToImage: String?
 )
