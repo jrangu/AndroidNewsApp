@@ -34,7 +34,7 @@ class HomeFragment : Fragment() {
 
         val newsTextView: TextView = root.findViewById(R.id.newsTextView)
         homeViewModel.newsResponse.observe(viewLifecycleOwner, Observer { newresponse ->
-            newsTextView.text = newresponse.newsDetails[0].title
+            newsTextView.text = newresponse.newsDetails?.get(0)?.title
         })
         return root
     }
