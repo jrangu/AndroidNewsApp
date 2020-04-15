@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.smartphone.topnews.R
 import com.smartphone.topnews.databinding.FragmentHomeBinding
+import com.smartphone.topnews.network.RowAdapter
 
 
 class HomeFragment : Fragment() {
@@ -26,12 +27,15 @@ class HomeFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater, R.layout.fragment_home,container,false)
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
                 //ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            binding.newsTextView.text = it
-        })
+//        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+//            binding.newsTextView.text = "Today"
+//        })
 
         homeViewModel.newsResponse.observe(viewLifecycleOwner, Observer { newresponse ->
-            binding.newsTextView.text = newresponse.newsDetails?.get(0)?.title
+            binding.newsTextView.text = "Today"
+            val list = newresponse.newsDetails
+            val adapter1 = list?.let { RowAdapter(it) }
+            binding.list.adapter = adapter1
         })
         return binding.root
     }
