@@ -41,9 +41,10 @@ class RowAdapter(private val myDataset: List<NewsArticles>) :
 
         }
         holder.view.btnShare.setOnClickListener {
+            val newsUrl = myDataset.get(position).url
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
+                putExtra(Intent.EXTRA_TEXT, newsUrl )
                 type = "text/plain"
             }
             val shareIntent = Intent.createChooser(sendIntent, null)
