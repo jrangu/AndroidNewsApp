@@ -79,4 +79,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 
     implementation 'androidx.cardview:cardview:1.0.0'
+
+    implementation 'androidx.core:core:1.2.0-beta01'
+    implementation 'androidx.sharetarget:sharetarget:1.0.0-beta01'
 }

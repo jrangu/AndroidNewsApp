@@ -30,11 +30,10 @@ class HomeFragment : Fragment() {
 //        homeViewModel.text.observe(viewLifecycleOwner, Observer {
 //            binding.newsTextView.text = "Today"
 //        })
-
         homeViewModel.newsResponse.observe(viewLifecycleOwner, Observer { newresponse ->
             binding.newsTextView.text = "Today"
             val list = newresponse.newsDetails
-            val adapter1 = list?.let { RowAdapter(it) }
+            val adapter1 = list?.let { RowAdapter(it)}
             binding.list.adapter = adapter1
         })
         return binding.root
