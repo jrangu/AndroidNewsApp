@@ -4,6 +4,8 @@ package com.smartphone.topnews.network
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -35,7 +37,12 @@ class RowAdapter(private val myDataset: List<NewsArticles>) :
         //holder.view.label1.text = myDataset.get(position).publishedAt
         holder.view.label1.text = myDataset.get(position).title
         val imageUrl = myDataset.get(position).urlToImage.toString()
-        Glide.with(holder.view.context).load(imageUrl).into(holder.view.imageview2)
+        if (imageUrl == null) {
+            holder.view.imageview2.visibility = INVISIBLE
+        } else {
+            holder.view.imageview2.visibility = VISIBLE
+            Glide.with(holder.view.context).load(imageUrl).into(holder.view.imageview2);
+        }
         holder.view.cv.setOnClickListener {
             //Toast.makeText(holder.view.getContext(), "Position:" + Integer.toString(position), Toast.LENGTH_SHORT).show();
             val intent = Intent(holder.view.context, DetailScreenActivity::class.java)
@@ -45,10 +52,10 @@ class RowAdapter(private val myDataset: List<NewsArticles>) :
             holder.view.context.startActivity(intent)
         }
         holder.view.btnShare.setOnClickListener {
-            holder.view.label1.text = "testing"
+            val newsUrl = myDataset.get(position).url
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
+                putExtra(Intent.EXTRA_TEXT, newsUrl)
                 type = "text/plain"
             }
             val shareIntent = Intent.createChooser(sendIntent, null)
