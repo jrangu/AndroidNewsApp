@@ -46,7 +46,7 @@ class RowAdapter(private val myDataset: List<NewsArticles>) :
         holder.view.cv.setOnClickListener {
             //Toast.makeText(holder.view.getContext(), "Position:" + Integer.toString(position), Toast.LENGTH_SHORT).show();
             val intent = Intent(holder.view.context, DetailScreenActivity::class.java)
-            intent.putExtra("url",myDataset.get(position).urlToImage.toString())
+            intent.putExtra("url",myDataset.get(position).url.toString())
             intent.putExtra("title", myDataset.get(position).title.toString())
             intent.putExtra("content",myDataset.get(position).content.toString() )
             holder.view.context.startActivity(intent)
