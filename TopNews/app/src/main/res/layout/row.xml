@@ -6,8 +6,7 @@
         android:id="@+id/cv"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_margin="6dp"
-        android:background="#CDC7C7">
+        android:layout_margin="6dp">
 
 
         <ImageView
@@ -19,22 +18,23 @@
 
         <TextView
             android:id="@+id/label1"
-            android:layout_width="376dp"
+            android:layout_width="368dp"
             android:layout_height="119dp"
             android:layout_gravity="bottom|center|right"
             android:text="Place_holder"
             android:textColor="#070707"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/btnShare"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="117dp"
+            android:layout_height="36dp"
             android:layout_gravity="bottom|left|end"
-            android:background="#1F3CA3"
+            android:background="@android:color/transparent"
             android:imeOptions="actionSend"
             android:text="Share"
-            android:textColor="#EDE9E9" />
+            android:textColor="#152998"
+            android:textSize="20sp" />
 
     </androidx.cardview.widget.CardView>
 

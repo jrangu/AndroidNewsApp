@@ -5,12 +5,13 @@ import android.util.Log
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
+import com.smartphone.topnews.ui.home.DetailScreenFragment
 
 
 class DetailScreenActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_detail_screen)
+        setContentView(R.layout.detail_screen)
         val url = intent.getStringExtra("url")
 //        val title = intent.getStringExtra("title")
 //        val content = intent.getStringExtra("content")
@@ -20,14 +21,17 @@ class DetailScreenActivity : AppCompatActivity(){
 //        text.text = title
 //        text1.text = content
 //        Glide.with(this).load(url).into(image)
-
-        val webview = findViewById<WebView>(R.id.webview)
-        Log.i("url",url)
-        webview.webViewClient = WebViewClient()
-        webview.settings.javaScriptEnabled = true
-        webview.settings.domStorageEnabled = true
-        webview.overScrollMode = WebView.OVER_SCROLL_NEVER
-        webview.loadUrl(url)
+        if (savedInstanceState == null) {
+            Log.i("inside","safghsdf")
+            val fragment = DetailScreenFragment()
+            val manager= supportFragmentManager
+            val t = manager.beginTransaction()
+            val b = Bundle();
+            b.putString("url", url)
+            fragment.arguments = b
+            t.add(R.id.main_content, fragment)
+                t.commit()
+        }
 
     }
 }
