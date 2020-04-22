@@ -30,6 +30,7 @@ class HomeFragment : Fragment() {
 //        homeViewModel.text.observe(viewLifecycleOwner, Observer {
 //            binding.newsTextView.text = "Today"
 //        })
+        //val type = arguments?.getString("type")
         homeViewModel.newsResponse.observe(viewLifecycleOwner, Observer { newresponse ->
             binding.newsTextView.text = "Today"
             val list = newresponse.newsDetails
