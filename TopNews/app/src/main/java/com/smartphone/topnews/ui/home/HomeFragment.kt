@@ -1,6 +1,7 @@
 package com.smartphone.topnews.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,7 +31,8 @@ class HomeFragment : Fragment() {
 //        homeViewModel.text.observe(viewLifecycleOwner, Observer {
 //            binding.newsTextView.text = "Today"
 //        })
-        //val type = arguments?.getString("type")
+        val type = arguments?.getString("type")
+        homeViewModel.getTopBusinessNews(type.toString())
         homeViewModel.newsResponse.observe(viewLifecycleOwner, Observer { newresponse ->
             binding.newsTextView.text = "Today"
             val list = newresponse.newsDetails

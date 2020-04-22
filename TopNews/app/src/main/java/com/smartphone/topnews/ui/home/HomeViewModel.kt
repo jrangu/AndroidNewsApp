@@ -21,11 +21,11 @@ class HomeViewModel : ViewModel() {
     val newsResponse = MutableLiveData<NewsProperty>()
 
     init {
-        getTopBusinessNews()
+
     }
 
-    private fun getTopBusinessNews() {
-        TopNewsApi.retrofitService.getProperties("us", "business", NewsAPIKEY).enqueue(
+     fun getTopBusinessNews(type : String) {
+        TopNewsApi.retrofitService.getProperties("us", type, NewsAPIKEY).enqueue(
             object : Callback<NewsProperty> {
                 override fun onFailure(call: Call<NewsProperty>, t: Throwable) {
                     newsErrorResponse.value = t.message
