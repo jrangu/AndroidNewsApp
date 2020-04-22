@@ -27,11 +27,12 @@
 
         <Button
             android:id="@+id/btnShare"
-            android:layout_width="117dp"
+            android:layout_width="wrap_content"
             android:layout_height="36dp"
             android:layout_gravity="bottom|left|end"
             android:background="@android:color/transparent"
             android:imeOptions="actionSend"
+            android:paddingLeft="0dp"
             android:text="Share"
             android:textColor="#152998"
             android:textSize="20sp" />
