@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_dailynews">
 
     <fragment
         android:id="@+id/nav_home"
@@ -29,6 +29,17 @@
 <!--            android:name="myArg"-->
 <!--            app:argType="string" />-->
 <!--    </fragment>-->
+
+    <fragment
+        android:id="@+id/nav_dailynews"
+        android:name="com.smartphone.topnews.ui.home.HomeFragment"
+        android:label="@string/menu_dailynews"
+        tools:layout="@layout/fragment_home" >
+        <argument
+            android:name="type"
+            app:argType="string"
+            />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"

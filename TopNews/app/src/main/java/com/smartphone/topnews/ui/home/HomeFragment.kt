@@ -32,7 +32,11 @@ class HomeFragment : Fragment() {
 //            binding.newsTextView.text = "Today"
 //        })
         val type = arguments?.getString("type")
-        homeViewModel.getTopBusinessNews(type.toString())
+        if(type == null){
+            homeViewModel.getTopBusinessNews("")
+        }else{
+            homeViewModel.getTopBusinessNews(type.toString())
+        }
         homeViewModel.newsResponse.observe(viewLifecycleOwner, Observer { newresponse ->
             binding.newsTextView.text = "Today"
             val list = newresponse.newsDetails
