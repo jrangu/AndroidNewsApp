@@ -6,7 +6,7 @@
     app:startDestination="@+id/nav_dailynews">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_business"
         android:name="com.smartphone.topnews.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home">
@@ -42,7 +42,7 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_sports"
         android:name="com.smartphone.topnews.ui.home.HomeFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_home" >
@@ -53,7 +53,7 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_technology"
         android:name="com.smartphone.topnews.ui.home.HomeFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_home" >
